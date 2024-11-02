@@ -4,13 +4,13 @@ import { useEffect } from "react";
 import { fetchBudget } from "../../utils/budget-utils";
 
 const Budget = () => {
-  const { budget, setBudget } = useContext(AppContext); // Assume setBudget is provided by AppContext
+  const { budget, setBudget } = useContext(AppContext);
   const [isEditing, setIsEditing] = useState(false);
   const [newBudget, setNewBudget] = useState(budget);
 
   const handleSave = () => {
-    setBudget(newBudget); // Update the budget in context
-    setIsEditing(false); // Exit editing mode
+    setBudget(newBudget);
+    setIsEditing(false);
   };
 
   // Fetch expenses on component mount
@@ -35,7 +35,7 @@ const Budget = () => {
           <input
             type="number"
             value={newBudget}
-            onChange={(e) => setNewBudget(Number(e.target.value))}
+            onChange={(b) => setNewBudget(Number(b.target.value))}
             className="form-control me-2"
           />
           <button
@@ -55,7 +55,7 @@ const Budget = () => {
         <div>
           Budget: ${budget}{" "}
           <button
-            className="btn btn-link"
+            className="btn btn-primary"
             onClick={() => setIsEditing(true)}
           >
             Edit
