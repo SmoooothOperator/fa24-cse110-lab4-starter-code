@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { Expense } from "../types/types";
 import Budget from "../components/Budget/Budget";
+import { fetchBudget } from "../utils/budget-utils";
 
 // Exercise: Create add budget to the context
 

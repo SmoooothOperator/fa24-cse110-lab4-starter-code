@@ -29,9 +29,16 @@ export function deleteExpense(
 ) {
   const { id } = req.params; // Get the ID from request parameters
   try {
-    expenses.filter((expense) => expense.id !== id);
+    const index = expenses.findIndex((expense) => expense.id === id);
+    if (index !== -1) {
+      expenses.splice(index, 1); // Remove the item at the found index
+      res.status(200).json({ message: "Expense deleted", expenses });
+    } else {
+      res.status(404).json({ message: "Expense not found" });
+    }
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    res.status(500).json({ message: "An error occurred" });
   }
 }
 
