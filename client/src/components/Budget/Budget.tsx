@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import { useEffect } from "react";
-import { fetchBudget } from "../../utils/budget-utils";
+import { fetchBudget, updateBudget } from "../../utils/budget-utils";
 
 const Budget = () => {
   const { budget, setBudget } = useContext(AppContext);
@@ -10,7 +10,7 @@ const Budget = () => {
 
   const handleSave = () => {
     setBudget(newBudget);
-
+    updateBudget(newBudget);
     setIsEditing(false);
   };
 

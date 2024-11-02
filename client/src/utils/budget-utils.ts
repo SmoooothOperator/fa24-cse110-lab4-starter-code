@@ -16,7 +16,7 @@ export const fetchBudget = async (): Promise<number> => {
     return data.budget;
   } catch (error) {
     console.error("Failed to fetch budget:", error);
-    throw error; // Re-throw to handle this error where the function is called
+    throw error;
   }
 };
 
@@ -35,14 +35,15 @@ export const updateBudget = async (budget: number): Promise<number> => {
     }
 
     const data = await response.json();
+    const amount = Number(data.amount);
 
-    if (typeof data.amount !== "number") {
+    if (typeof amount !== "number") {
       throw new Error("Invalid response format from API");
     }
 
-    return data.amount; // Return the updated budget amount
+    return amount; // Return the updated budget amount
   } catch (error) {
     console.error("Failed to update budget:", error);
-    throw error; // Re-throw the error to handle it in calling code
+    throw error;
   }
 };
