@@ -34,6 +34,7 @@ const AddExpenseForm = () => {
           <input
             required
             type="text"
+            placeholder="Expense Name"
             className="form-control"
             id="name"
             value={createEntry.name}
