@@ -10,6 +10,7 @@ const Budget = () => {
 
   const handleSave = () => {
     setBudget(newBudget);
+
     setIsEditing(false);
   };
 
@@ -36,7 +37,6 @@ const Budget = () => {
             type="number"
             value={newBudget}
             onChange={(b) => setNewBudget(Number(b.target.value))}
-            className="form-control me-2"
           />
           <button
             className="btn btn-primary"
